@@ -3,6 +3,8 @@
 #include <chrono>
 #include <ctime>
 #include <ncurses.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 #ifdef _WIN32
     // For Windows
@@ -24,7 +26,9 @@ public:
             system("cowsay Welcome to Linux Menu v1.0!");
         } else if (gameCommand == "e") {
             system("clear");
-            exit(0);
+            pid_t gid = getpgid(getpid());
+            std::string command = "kill -9 " + std::to_string(getpid());
+            std::system(command.c_str());
         } else if (gameCommand == "s") {
             system("whoami");
         } else if (gameCommand == "u") {
