@@ -41,6 +41,8 @@ public:
             std::system(CLEARSCR);
             printLogoOne();
             printMenu();
+        } else if (gameCommand == "n") {
+            system("neofetch");
         } else {
             std::cout <<"Unrecognized command! Try again." << std::endl;
             refresh();
