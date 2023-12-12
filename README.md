@@ -4,4 +4,4 @@ Terminal autostart app for my linux pc inspired by old BBSes. This is custom tai
 compile using:
 ```g++ main.cpp -o main -lncurses```
 
-![Preview](image.png)
+
