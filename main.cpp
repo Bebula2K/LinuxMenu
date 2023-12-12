@@ -19,7 +19,7 @@ using namespace std;
 int main(){
     Engine engine;
     std::system(CLEARSCR);
-        printLogoOne();
+        printLogoTwo();
         printMenu();
     while(true){
         std::string currentTime = engine.getCurrentTime();
@@ -32,7 +32,7 @@ int main(){
                 std::cout << "debug stuff" << std::endl;
             }
         } else {
-            std::cout << "Invalid Command" << std::endl;
+            cout << "\33[2K" << endl;
         }
 	}
 }
