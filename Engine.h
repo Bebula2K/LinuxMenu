@@ -5,6 +5,9 @@
 #include <ncurses.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <cstdlib>
+
+#include "calculator.h"
 
 #ifdef _WIN32
     // For Windows
@@ -13,6 +16,7 @@
     // For Linux  and others
     #define CLEARSCR "clear"
 #endif
+
 
 class Engine {
 public:
@@ -23,7 +27,7 @@ public:
         });
 
         if (gameCommand == "w") {
-            system("cowsay Welcome to Linux Menu v1.0!");
+            system("cowsay Welcome to Linux Menu v1.2!");
         } else if (gameCommand == "e") {
             system("clear");
             pid_t gid = getpgid(getpid());
@@ -37,12 +41,20 @@ public:
             system("alacritty");
         } else if (gameCommand == "c") {
             system("sudo pacman -Syu");
+        } else if (gameCommand == "#") {
+            calculator();
         } else if (gameCommand == "p") {
             std::system(CLEARSCR);
-            printLogoOne();
+            printLogoTwo();
             printMenu();
+        } else if (gameCommand == "#") {
+            calculator();
         } else if (gameCommand == "n") {
             system("neofetch");
+        } else if (gameCommand == "d") {
+            system("lsblk");
+        } else if (gameCommand == "g") {
+            system("./getping.sh");
         } else {
             std::cout <<"Unrecognized command! Try again." << std::endl;
             refresh();
